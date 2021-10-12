@@ -3,9 +3,9 @@ from typing import List
 
 def is_prime(n):
     """
-    Verifica daca numarul este prim
-    :param n: numar natural
-    :return: True - daca este prim, False - da nu este prim
+    Verifica daca numarul este prim.
+    :param n: numar natural.
+    :return: True - daca este prim, False - da nu este prim.
     """
     if n < 2:
         return 0
@@ -21,7 +21,7 @@ def is_prime(n):
 def get_longest_all_primes(lst: List[int]) -> List[int]:
     """
     1.Determina cea mai lunga subsecventa cu o proprietatea ca toate numerele sunt patrate perfecte.
-    :param lst: lista de numere citita
+    :param lst: lista de numere citita.
     :return:Lista cu cea mai lunga subsecventa proprietatea ca toate numerele sunt patrate perfecte.
     """
     max_length = 0
@@ -57,9 +57,9 @@ def test_get_longest_all_primes():
 
 def prime_digits(n):
     """
-    Verifica daca toate cifrele numarului sunt numere prime
-    :param n: numarul pe acre trebuie verificat
-    :return: 1 - daca toate cifrele sunt prime , 0 - daca nu toate cifrele sunt prime
+    Verifica daca toate cifrele numarului sunt numere prime.
+    :param n: numarul pe acre trebuie verificat.
+    :return: 1 - daca toate cifrele sunt prime , 0 - daca nu toate cifrele sunt prime.
     """
     lst = []
     while n:
@@ -75,7 +75,7 @@ def get_longest_prime_digits(lst: List[int]) -> List[int]:
     """
     13.Determina cea mai lunga subsecventa cu o proprietatea ca toate numerele sunt formate din cifre prime.
     :param lst: lista de numere
-    :return: Lista cu cea mai lunga subsecventa cu proprietatea ca toate cifrele numarului sunt numere prime
+    :return: Lista cu cea mai lunga subsecventa cu proprietatea ca toate cifrele numarului sunt numere prime.
     """
     length = 0
     max_length = 0
