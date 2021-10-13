@@ -108,6 +108,44 @@ def test_get_longest_prime_digits():
     assert get_longest_prime_digits([2, 2, 2, 2, 17, 7, 11, 10, 2, 2, 2, 2, 17, 7, 31, 100]) == [2, 2, 2, 2]
 
 
+def get_longest_all_not_prime(lst: List[int]) -> List[int]:
+    """
+        7. Cea mai lunga secventa cu proprietatea ca toate numerele sunt neprime.
+        :param lst: lista de numere
+        :return: Lista cu cea mai lunga subsecventa cu proprietatea ca toate numerele sunt neprime.
+        """
+    length = 0
+    max_length = 0
+    temp_list = []
+    final_list = []
+    for i in range(len(lst)):
+        if is_prime(lst[i]) == False:
+            temp_list.append(lst[i])
+            length = length + 1
+        elif length > max_length:
+            max_length = length
+            length = 0
+            final_list = temp_list[:]
+            temp_list.clear()
+        else:
+            temp_list.clear()
+    if length > max_length:
+        final_list = temp_list[:]
+    return final_list
+
+
+def test_get_longest_all_not_prime(lst: List[int]):
+    assert test_get_longest_all_not_prime([2, 3, 7]) == []
+    assert test_get_longest_all_not_prime([1]) == []
+    assert test_get_longest_all_not_prime([10, 20, 30, 40, 1]) == [10, 20, 30, 40]
+    assert test_get_longest_all_not_prime([14, 15, 16, 18, 2, 1, 10, 20, 30, 40]) == [1, 10, 20, 30, 40]
+    assert test_get_longest_all_not_prime([2, 2, 1, 2, 3]) == [2, 2]
+    assert test_get_longest_all_not_prime([]) == []
+    assert test_get_longest_all_not_prime([1, 10, 15, 17, 222, 420, 48]) == [1, 10, 15]
+    assert test_get_longest_all_not_prime([70, 210, 49, 88, 110]) == [70, 210, 49, 88, 110]
+    assert test_get_longest_all_not_prime([2, 4, 10, 8, 90, 1, 4, 2]) == [2, 3, 10, 8, 90, 1, 4]
+
+
 def read_list() -> List[int]:
     lst = input("Introduceti numerele:")
     lst = lst.split(' ')
@@ -123,15 +161,18 @@ def main():
         print("1.Introduceti numerele separate printr-un spatiu.")
         print("2.Determina cea mai lunga subsecventa cu proprietatea ca toate numerele sunt numere prime.")
         print("3.Determina cea mai lunga subsecventa cu proprietatea ca toate cifrele numarului sunt numere prime. ")
-        print("4.Exit.")
-        optiune = int(input("Alegeti optiunea: "))
-        if optiune == 1:
+        print("4.Determina cea mai lunga subsecventa cu proprietatea ca toate numerele sunt neprime")
+        print("5.Exit.")
+        optiune = input("Alegeti optiunea: ")
+        if optiune == '1':
             lst = read_list()
-        elif optiune == 2:
+        elif optiune == '2':
             print(get_longest_all_primes(lst))
-        elif optiune == 3:
+        elif optiune == '3':
             print(get_longest_prime_digits(lst))
-        elif optiune == 4:
+        elif optiune == '4':
+            print(get_longest_all_not_prime(lst))
+        elif optiune == '5':
             break
         else:
             print("Optiune invalida")
