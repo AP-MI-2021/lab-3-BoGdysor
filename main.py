@@ -134,16 +134,16 @@ def get_longest_all_not_prime(lst: List[int]) -> List[int]:
     return final_list
 
 
-def test_get_longest_all_not_prime(lst: List[int]):
-    assert test_get_longest_all_not_prime([2, 3, 7]) == []
-    assert test_get_longest_all_not_prime([1]) == []
-    assert test_get_longest_all_not_prime([10, 20, 30, 40, 1]) == [10, 20, 30, 40]
-    assert test_get_longest_all_not_prime([14, 15, 16, 18, 2, 1, 10, 20, 30, 40]) == [1, 10, 20, 30, 40]
-    assert test_get_longest_all_not_prime([2, 2, 1, 2, 3]) == [2, 2]
-    assert test_get_longest_all_not_prime([]) == []
-    assert test_get_longest_all_not_prime([1, 10, 15, 17, 222, 420, 48]) == [1, 10, 15]
-    assert test_get_longest_all_not_prime([70, 210, 49, 88, 110]) == [70, 210, 49, 88, 110]
-    assert test_get_longest_all_not_prime([2, 4, 10, 8, 90, 1, 4, 2]) == [2, 3, 10, 8, 90, 1, 4]
+def test_get_longest_all_not_prime():
+    assert get_longest_all_not_prime([2, 3, 7]) == []
+    assert get_longest_all_not_prime([1]) == [1]
+    assert get_longest_all_not_prime([10, 20, 30, 40, 1]) == [10, 20, 30, 40, 1]
+    assert get_longest_all_not_prime([14, 15, 16, 18, 2, 1, 10, 20, 30, 40]) == [1, 10, 20, 30, 40]
+    assert get_longest_all_not_prime([2, 2, 1, 2, 3]) == [1]
+    assert get_longest_all_not_prime([]) == []
+    assert get_longest_all_not_prime([1, 10, 15, 17, 222, 420, 48]) == [1, 10, 15]
+    assert get_longest_all_not_prime([70, 210, 49, 88, 110]) == [70, 210, 49, 88, 110]
+    assert get_longest_all_not_prime([2, 4, 10, 8, 90, 1, 4, 2]) == [4, 10, 8, 90, 1, 4]
 
 
 def read_list() -> List[int]:
@@ -181,4 +181,5 @@ def main():
 if __name__ == "__main__":
     test_get_longest_all_primes()
     test_get_longest_prime_digits()
+    test_get_longest_all_not_prime()
     main()
